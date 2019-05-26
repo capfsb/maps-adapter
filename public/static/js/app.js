@@ -7,5 +7,17 @@ $(() => {
 		onZoomOut: () => adapter.zoomOut()
 	}));
 
+	overlay.addControl(new FullScreenControl({
+		onFullScreenIn: () => {
+			overlay.fullScreenIn();
+			adapter.fitToViewport();
+		},
+		onFullScreenOut: () => {
+			overlay.fullScreenOut();
+			adapter.fitToViewport();
+		},
+	}));
+
+
 	adapter.start();
 });

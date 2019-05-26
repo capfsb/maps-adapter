@@ -7,4 +7,12 @@ class Overlay {
 	addControl(control) {
 		this.$el.append(control.$el)
 	}
+
+	fullScreenIn() {
+		this.$el.addClass('overlay_fullscreen');
+	}
+
+	fullScreenOut() {
+		this.$el.removeClass('overlay_fullscreen');
+	}
 }

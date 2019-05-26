@@ -27,4 +27,8 @@ class YandexMapAdapter extends AbstractMapAdapter {
 	zoomOut() {
 		this.zoom(-1);
 	}
+
+	fitToViewport() {
+		this.map.container.fitToViewport();
+	}
 }
