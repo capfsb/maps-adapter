@@ -4,7 +4,6 @@ $(() => {
 	overlay.addControl(new ZoomControl({
 		onZoomIn: () => console.log('plus'),
 		onZoomOut: () => console.log('minus')
-
 	}));
 
 
