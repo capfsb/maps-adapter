@@ -1,12 +1,11 @@
 $(() => {
 	let overlay = new Overlay('.js-map-container');
+	let adapter = new YandexMapAdapter();
 
 	overlay.addControl(new ZoomControl({
-		onZoomIn: () => console.log('plus'),
-		onZoomOut: () => console.log('minus')
+		onZoomIn: () => adapter.zoomIn(),
+		onZoomOut: () => adapter.zoomOut()
 	}));
 
-
-	let adapter = new YandexMapAdapter();
 	adapter.start();
 });
