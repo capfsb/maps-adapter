@@ -7,20 +7,18 @@
 </head>
 <body>
 
-<div class="map-container">
-	<div class="overlay js-overlay">
-		<div class="overlay__item map-button-union" style="position: absolute; top: 50%; right: 10px; margin-top: -67px;">
-			<div class="map-button map-button_icon_plus"></div>
-			<div class="map-button map-button_icon_minus"></div>
-		</div>
-	</div>
-</div>
+<div class="js-map-container map-container"></div>
 
 
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 
+
 <script src="/static/js/map/AbstractMapAdapter.js"></script>
 <script src="/static/js/map/YandexMapAdapter.js"></script>
+
+<script src="/static/js/overlay/overlay.js"></script>
+<script src="/static/js/overlay/zoom.js"></script>
+
 <script src="/static/vendor/jquery-3.4.1.min.js"></script>
 <script src="/static/js/app.js"></script>
 </body>
