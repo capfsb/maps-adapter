@@ -1,0 +1,73 @@
+
+.map-button, .map-button-union {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .3)
+}
+
+.map-button {
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    background-color: #fff;
+    border-radius: 100%;
+    background-image: url(/static/img/map-sprite.svg);
+    background-size: 28px 285px;
+    background-repeat: no-repeat;
+    transition: .2s background-color
+}
+
+.map-button_icon_cross {
+    background-position: 9px 9px
+}
+
+.map-button_icon_plus {
+    background-position: 8px -28px
+}
+
+.map-button_icon_minus {
+    background-position: 8px -66px
+}
+
+.map-button_icon_geo-empty {
+    background-position: 7px -105px
+}
+
+.map-button_icon_geo-fill {
+    background-position: 7px -145px
+}
+
+.map-button_icon_sign {
+    background-position: 6px -186px
+}
+
+.map-button_icon_fullscreen {
+    background-position: 9px -258px
+}
+
+.map-button-union {
+    border-radius: 18px;
+    width: 36px;
+    overflow: hidden
+}
+
+.map-button-union .map-button {
+    border-radius: 0;
+    box-shadow: none;
+    height: 46px
+}
+
+.map-button-union .map-button + .map-button {
+    border-top: 1px solid #d8d8d8
+}
+
+.map-button-union .map-button_icon_plus {
+    background-position: 8px -23px
+}
+
+.map-button-union .map-button_icon_minus {
+    background-position: 8px -61px
+}
+
+.map-button:active {
+    transition: none;
+    background-color: #e1f5fe
+}
