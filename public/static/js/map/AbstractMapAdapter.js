@@ -7,6 +7,7 @@ class AbstractMapAdapter {
 			|| this.zoomOut === AbstractMapAdapter.prototype.zoomOut
 			|| this.fitToViewport === AbstractMapAdapter.prototype.fitToViewport
 			|| this.addPoint === AbstractMapAdapter.prototype.addPoint
+			|| this.onCoordinatesClick === AbstractMapAdapter.prototype.onCoordinatesClick
 		) {
 			throw new Error('Implement method!')
 		}
@@ -24,6 +25,9 @@ class AbstractMapAdapter {
 	fitToViewport() {
 	}
 
-	addPoint() {
+	addPoint(coords) {
+	}
+
+	onCoordinatesClick(callback) {
 	}
 }

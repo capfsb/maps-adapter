@@ -9,6 +9,10 @@ $(async () => {
 	adapter.addPoint([55.684758, 37.538521]);
 	adapter.addPoint([55.484758, 37.538521]);
 
+	adapter.onCoordinatesClick(coords => {
+		$('.js-reverse-geocoder').text(JSON.stringify(coords))
+	});
+
 	overlay.addControl(new ZoomControl({
 		onZoomIn: () => adapter.zoomIn(),
 		onZoomOut: () => adapter.zoomOut()

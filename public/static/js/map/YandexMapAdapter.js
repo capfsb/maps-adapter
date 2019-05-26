@@ -11,7 +11,7 @@ class YandexMapAdapter extends AbstractMapAdapter {
 
 		this.map = new ymaps.Map("map", {
 			center: [55.76, 37.64],
-			zoom: 7,
+			zoom: 9,
 			controls: []
 		});
 	}
@@ -41,5 +41,12 @@ class YandexMapAdapter extends AbstractMapAdapter {
 		});
 
 		this.map.geoObjects.add(myGeoObject)
+	}
+
+	onCoordinatesClick(callback) {
+		this.map.events.add('click', function (e) {
+			let coords = e.get('coords');
+			callback(coords);
+		});
 	}
 }
