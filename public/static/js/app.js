@@ -1,3 +1,6 @@
 $(() => {
-	console.log('ok =)', $)
+	let adapter = new YandexMapAdapter();
+
+
+	adapter.start();
 });
