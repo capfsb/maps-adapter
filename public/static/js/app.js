@@ -1,6 +1,8 @@
-$(() => {
+$(async () => {
 	let overlay = new Overlay('.js-map-container');
 	let adapter = new YandexMapAdapter();
+
+	await adapter.start();
 
 	overlay.addControl(new ZoomControl({
 		onZoomIn: () => adapter.zoomIn(),
@@ -17,7 +19,4 @@ $(() => {
 			adapter.fitToViewport();
 		},
 	}));
-
-
-	adapter.start();
 });
