@@ -1,6 +1,14 @@
 $(async () => {
+	let mapType = await chooseMapType;
+	let adapter;
+
+	if (mapType === 'yandex') {
+		adapter = new YandexMapAdapter();
+	} else {
+		return;
+	}
+
 	let overlay = new Overlay('.js-map-container');
-	let adapter = new YandexMapAdapter();
 
 	await adapter.start();
 

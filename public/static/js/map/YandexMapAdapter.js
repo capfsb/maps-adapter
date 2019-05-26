@@ -7,6 +7,7 @@ class YandexMapAdapter extends AbstractMapAdapter {
 	async start() {
 		await new Promise(resolve => ymaps.ready(resolve));
 
+		//@todo вот это надо отсюда убрать, карта не должна знать про оверлей
 		$('<div id="map" class="overlay__map"></div>').appendTo('.js-overlay');
 
 		this.map = new ymaps.Map("map", {

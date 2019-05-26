@@ -7,9 +7,19 @@
 </head>
 <body>
 
+<script>
+	var resolveMapWithType;
+	var chooseMapType = new Promise(resolve => resolveMapWithType = resolve)
+</script>
+
+<div>Выберите карту: <button onclick="resolveMapWithType('yandex')">Yandex</button></div>
+<br>
+<br>
+
 <div class="js-map-container map-container"></div>
 <br>
 <br>
+
 <div>Клик по карте, координаты: <span class="js-reverse-geocoder"></span></div>
 
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
