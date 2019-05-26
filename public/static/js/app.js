@@ -4,6 +4,11 @@ $(async () => {
 
 	await adapter.start();
 
+	adapter.addPoint([55.484758, 37.738521]);
+	adapter.addPoint([55.684758, 37.738521]);
+	adapter.addPoint([55.684758, 37.538521]);
+	adapter.addPoint([55.484758, 37.538521]);
+
 	overlay.addControl(new ZoomControl({
 		onZoomIn: () => adapter.zoomIn(),
 		onZoomOut: () => adapter.zoomOut()

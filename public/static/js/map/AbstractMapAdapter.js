@@ -6,6 +6,7 @@ class AbstractMapAdapter {
 			|| this.zoomIn === AbstractMapAdapter.prototype.zoomIn
 			|| this.zoomOut === AbstractMapAdapter.prototype.zoomOut
 			|| this.fitToViewport === AbstractMapAdapter.prototype.fitToViewport
+			|| this.addPoint === AbstractMapAdapter.prototype.addPoint
 		) {
 			throw new Error('Implement method!')
 		}
@@ -21,5 +22,8 @@ class AbstractMapAdapter {
 	}
 
 	fitToViewport() {
+	}
+
+	addPoint() {
 	}
 }

@@ -31,4 +31,15 @@ class YandexMapAdapter extends AbstractMapAdapter {
 	fitToViewport() {
 		this.map.container.fitToViewport();
 	}
+
+	addPoint(coords) {
+		let myGeoObject = new ymaps.GeoObject({
+			geometry: {
+				type: "Point",
+				coordinates: coords
+			}
+		});
+
+		this.map.geoObjects.add(myGeoObject)
+	}
 }
