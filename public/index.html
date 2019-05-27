@@ -15,7 +15,8 @@
 <div>
 	<div>Выберите карту:</div>
 	<button onclick="resolveMapWithType('yandex')">Yandex</button>
-	<button onclick="resolveMapWithType('google')">google</button>
+	<button onclick="resolveMapWithType('google')">Google</button>
+	<button onclick="resolveMapWithType('2gis')">2GIS</button>
 </div>
 <br>
 <br>
@@ -28,11 +29,13 @@
 
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 <script src="https://maps.googleapis.com/maps/api/js" type="text/javascript"></script>
+<script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
 
 
 <script src="/static/js/map/AbstractMapAdapter.js"></script>
 <script src="/static/js/map/YandexMapAdapter.js"></script>
 <script src="/static/js/map/GoogleMapAdapter.js"></script>
+<script src="/static/js/map/TwoGisMapAdapter.js"></script>
 
 <script src="/static/js/overlay/Overlay.js"></script>
 <script src="/static/js/overlay/ZoomControl.js"></script>
