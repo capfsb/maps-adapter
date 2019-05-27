@@ -14,6 +14,8 @@ $(async () => {
 
 	await adapter.start();
 
+	adapter.setCenter([55.76, 37.64]);
+
 	adapter.addPoint([55.484758, 37.738521]);
 	adapter.addPoint([55.684758, 37.738521]);
 	adapter.addPoint([55.684758, 37.538521]);

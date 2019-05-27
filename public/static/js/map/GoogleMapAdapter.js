@@ -11,7 +11,6 @@ class GoogleMapAdapter extends AbstractMapAdapter {
 
 		this.map = new google.maps.Map(document.getElementById('map'), {
 			zoom: 9,
-			center: {lat: 55.76, lng: 37.64},
 			disableDefaultUI: true
 		});
 
@@ -37,5 +36,9 @@ class GoogleMapAdapter extends AbstractMapAdapter {
 		this.map.addListener('click', e => {
 			callback([e.latLng.lat(), e.latLng.lng()])
 		});
+	}
+
+	setCenter([lat, lon]) {
+		this.map.setCenter({lat, lng: lon});
 	}
 }

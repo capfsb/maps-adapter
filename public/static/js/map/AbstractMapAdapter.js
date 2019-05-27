@@ -8,6 +8,7 @@ class AbstractMapAdapter {
 			|| this.fitToViewport === AbstractMapAdapter.prototype.fitToViewport
 			|| this.addPoint === AbstractMapAdapter.prototype.addPoint
 			|| this.onCoordinatesClick === AbstractMapAdapter.prototype.onCoordinatesClick
+			|| this.setCenter === AbstractMapAdapter.prototype.setCenter
 		) {
 			throw new Error('Implement method!')
 		}
@@ -29,5 +30,8 @@ class AbstractMapAdapter {
 	}
 
 	onCoordinatesClick(callback) {
+	}
+
+	setCenter([lat, lon]) {
 	}
 }

@@ -11,7 +11,7 @@ class YandexMapAdapter extends AbstractMapAdapter {
 		$('<div id="map" class="overlay__map"></div>').appendTo('.js-overlay');
 
 		this.map = new ymaps.Map("map", {
-			center: [55.76, 37.64],
+			center: [],
 			zoom: 9,
 			controls: []
 		});
@@ -49,5 +49,9 @@ class YandexMapAdapter extends AbstractMapAdapter {
 			let coords = e.get('coords');
 			callback(coords);
 		});
+	}
+
+	setCenter([lat, lon]) {
+		this.map.setCenter([lat, lon])
 	}
 }
