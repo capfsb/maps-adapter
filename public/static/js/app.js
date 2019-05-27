@@ -20,6 +20,7 @@ $(async () => {
 	adapter.addPoint([55.484758, 37.538521]);
 
 	adapter.onCoordinatesClick(coords => {
+		adapter.addPoint(coords);
 		$('.js-reverse-geocoder').text(JSON.stringify(coords))
 	});
 
