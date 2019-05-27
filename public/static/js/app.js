@@ -4,6 +4,8 @@ $(async () => {
 
 	if (mapType === 'yandex') {
 		adapter = new YandexMapAdapter();
+	} else if (mapType === 'google') {
+		adapter = new GoogleMapAdapter();
 	} else {
 		return;
 	}
