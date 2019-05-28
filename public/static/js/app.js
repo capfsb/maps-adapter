@@ -28,6 +28,15 @@ $(async () => {
 		$('.js-reverse-geocoder').text(JSON.stringify(coords))
 	});
 
+	let routeBuilder = new RouteBuilder();
+
+	routeBuilder.getRoute().then(data => {
+		let route = data.routes[0];
+		route.legs.forEach(leg => leg.steps.forEach(step => {
+			adapter.addPolyline(polyline.decode(step.geometry))
+		}));
+	});
+
 	overlay.addControl(new ZoomControl({
 		onZoomIn: () => adapter.zoomIn(),
 		onZoomOut: () => adapter.zoomOut()

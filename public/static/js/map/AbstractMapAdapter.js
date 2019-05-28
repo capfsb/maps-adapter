@@ -9,6 +9,7 @@ class AbstractMapAdapter {
 			|| this.addPoint === AbstractMapAdapter.prototype.addPoint
 			|| this.onCoordinatesClick === AbstractMapAdapter.prototype.onCoordinatesClick
 			|| this.setCenter === AbstractMapAdapter.prototype.setCenter
+			|| this.addPolyline === AbstractMapAdapter.prototype.addPolyline
 		) {
 			throw new Error('Implement method!')
 		}
@@ -33,5 +34,8 @@ class AbstractMapAdapter {
 	}
 
 	setCenter([lat, lon]) {
+	}
+
+	addPolyline(coordinatesArray, style) {
 	}
 }
