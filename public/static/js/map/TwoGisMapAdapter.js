@@ -46,4 +46,10 @@ class TwoGisMapAdapter extends AbstractMapAdapter {
 	setCenter([lat, lon]) {
 		this.map.setView([lat, lon]);
 	}
+
+	addPolyline(coordinatesArray, style) {
+		DG.polyline(coordinatesArray, {
+			color: '#FF0000'
+		}).addTo(this.map);
+	}
 }
