@@ -1,10 +1,26 @@
 class RouteBuilder {
+	constructor(adapter) {
+		this.adapter = adapter;
+	}
+
 	async getRoute(from, to) {
 		return new Promise(resolve => {
 			setTimeout(() => {
 				resolve(THIS_IS_ROUTE_EMITATION)
 			}, 500)
 		})
+	}
+
+	async buildRoute(from, to) {
+		let data = await this.getRoute(from, to);
+		let route = data.routes[0];
+		route.legs.forEach(leg => leg.steps.forEach(step => {
+			if (step.mode === 'ferry') {
+				this.adapter.addPolyline(polyline.decode(step.geometry), 'water')
+			} else {
+				this.adapter.addPolyline(polyline.decode(step.geometry), 'road')
+			}
+		}));
 	}
 }
 

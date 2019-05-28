@@ -28,18 +28,9 @@ $(async () => {
 		$('.js-reverse-geocoder').text(JSON.stringify(coords))
 	});
 
-	let routeBuilder = new RouteBuilder();
+	let routeBuilder = new RouteBuilder(adapter);
 
-	routeBuilder.getRoute().then(data => {
-		let route = data.routes[0];
-		route.legs.forEach(leg => leg.steps.forEach(step => {
-			if (step.mode === 'ferry') {
-				adapter.addPolyline(polyline.decode(step.geometry), 'water')
-			} else {
-				adapter.addPolyline(polyline.decode(step.geometry), 'road')
-			}
-		}));
-	});
+	routeBuilder.buildRoute('from', 'to')
 
 	overlay.addControl(new ZoomControl({
 		onZoomIn: () => adapter.zoomIn(),
