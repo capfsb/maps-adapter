@@ -73,4 +73,9 @@ class YandexMapAdapter extends AbstractMapAdapter {
 
 		this.map.geoObjects.add(point)
 	}
+
+	centerMapWithCoordinates(coordinatesArray) {
+		let {center, zoom} = ymaps.util.bounds.getCenterAndZoom(this.getBounds(coordinatesArray), this.map.container.getSize());
+		this.map.setCenter(center, zoom)
+	}
 }

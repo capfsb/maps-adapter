@@ -30,7 +30,7 @@ $(async () => {
 
 	let routeBuilder = new RouteBuilder(adapter);
 
-	routeBuilder.buildRoute('from', 'to')
+	routeBuilder.buildRoute('from', 'to').then(points => adapter.centerMapWithCoordinates(points))
 
 	overlay.addControl(new ZoomControl({
 		onZoomIn: () => adapter.zoomIn(),

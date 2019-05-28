@@ -60,4 +60,12 @@ class GoogleMapAdapter extends AbstractMapAdapter {
 
 		flightPath.setMap(this.map);
 	}
+
+	centerMapWithCoordinates(coordinatesArray) {
+		let [[x0, y0], [x1, y1]] = this.getBounds(coordinatesArray);
+
+		let latLngBounds = new google.maps.LatLngBounds({lat: x0, lng: y0}, {lat: x1, lng: y1});
+
+		this.map.fitBounds(latLngBounds);
+	}
 }

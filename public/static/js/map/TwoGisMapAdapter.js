@@ -57,4 +57,14 @@ class TwoGisMapAdapter extends AbstractMapAdapter {
 			color: styles[style]
 		}).addTo(this.map);
 	}
+
+	centerMapWithCoordinates(coordinatesArray) {
+		let [[minx, miny], [maxx, maxy]] = this.getBounds(coordinatesArray);
+
+		var southWest = DG.latLng(minx, miny);
+		var northEast = DG.latLng(maxx, maxy);
+		var bounds = DG.latLngBounds(southWest, northEast);
+
+		this.map.fitBounds(bounds)
+	}
 }

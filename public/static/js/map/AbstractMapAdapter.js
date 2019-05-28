@@ -38,4 +38,30 @@ class AbstractMapAdapter {
 
 	addPolyline(coordinatesArray, style) {
 	}
+
+	centerMapWithCoordinates(coordinatesArray){
+	}
+
+	getBounds(coordinatesArray){
+		let minx;
+		let miny;
+		let maxx;
+		let maxy;
+
+		//да не эффективно, можно было при построении посчитать, но это жи прототип
+		coordinatesArray.forEach(([x, y]) => {
+			minx = minx || x;
+			maxx = maxx || x;
+			miny = miny || y;
+			maxy = maxy || y;
+
+			x < minx && (minx = x);
+			y < miny && (miny = y);
+
+			x > maxx && (maxx = x);
+			y > maxy && (maxy = y);
+		});
+
+		return [[minx, miny], [maxx, maxy]];
+	}
 }

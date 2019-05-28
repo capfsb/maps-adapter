@@ -14,13 +14,20 @@ class RouteBuilder {
 	async buildRoute(from, to) {
 		let data = await this.getRoute(from, to);
 		let route = data.routes[0];
+		let points = [];
+
 		route.legs.forEach(leg => leg.steps.forEach(step => {
+			let coordinatesArray = polyline.decode(step.geometry);
+			points = points.concat(coordinatesArray);
+
 			if (step.mode === 'ferry') {
-				this.adapter.addPolyline(polyline.decode(step.geometry), 'water')
+				this.adapter.addPolyline(coordinatesArray, 'water')
 			} else {
-				this.adapter.addPolyline(polyline.decode(step.geometry), 'road')
+				this.adapter.addPolyline(coordinatesArray, 'road')
 			}
 		}));
+
+		return points;
 	}
 }
 
