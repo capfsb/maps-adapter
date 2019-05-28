@@ -47,9 +47,14 @@ class TwoGisMapAdapter extends AbstractMapAdapter {
 		this.map.setView([lat, lon]);
 	}
 
-	addPolyline(coordinatesArray, style) {
+	addPolyline(coordinatesArray, style = 'road') {
+		let styles = {
+			road: '#FF0000',
+			water: '#00FF00'
+		};
+
 		DG.polyline(coordinatesArray, {
-			color: '#FF0000'
+			color: styles[style]
 		}).addTo(this.map);
 	}
 }

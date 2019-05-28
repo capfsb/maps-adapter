@@ -55,14 +55,19 @@ class YandexMapAdapter extends AbstractMapAdapter {
 		this.map.setCenter([lat, lon])
 	}
 
-	addPolyline(coordinatesArray, style) {
+	addPolyline(coordinatesArray, style = 'road') {
+		let styles = {
+			road: '#FF0000',
+			water: '#00FF00'
+		};
+
 		let point = new ymaps.GeoObject({
 			geometry: {
 				type: "LineString",
 				coordinates: coordinatesArray
 			},
 		}, {
-			strokeColor: "#FF0000",
+			strokeColor: styles[style],
 			strokeWidth: 5
 		});
 

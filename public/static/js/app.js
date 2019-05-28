@@ -33,7 +33,11 @@ $(async () => {
 	routeBuilder.getRoute().then(data => {
 		let route = data.routes[0];
 		route.legs.forEach(leg => leg.steps.forEach(step => {
-			adapter.addPolyline(polyline.decode(step.geometry))
+			if (step.mode === 'ferry') {
+				adapter.addPolyline(polyline.decode(step.geometry), 'water')
+			} else {
+				adapter.addPolyline(polyline.decode(step.geometry), 'road')
+			}
 		}));
 	});
 

@@ -42,13 +42,18 @@ class GoogleMapAdapter extends AbstractMapAdapter {
 		this.map.setCenter({lat, lng: lon});
 	}
 
-	addPolyline(coordinatesArray, style) {
+	addPolyline(coordinatesArray, style = 'road') {
 		var flightPlanCoordinates = coordinatesArray.map(([lat, lng]) => ({lat, lng}));
+
+		let styles = {
+			road: '#FF0000',
+			water: '#00FF00'
+		};
 
 		var flightPath = new google.maps.Polyline({
 			path: flightPlanCoordinates,
 			geodesic: true,
-			strokeColor: '#FF0000',
+			strokeColor: styles[style],
 			strokeOpacity: 1.0,
 			strokeWeight: 2
 		});
