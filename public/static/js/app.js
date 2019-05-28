@@ -16,12 +16,12 @@ $(async () => {
 
 	await adapter.start();
 
-	adapter.setCenter([55.76, 37.64]);
+	adapter.setCenter([43.1236162095144, 131.92480882750806]);
 
-	adapter.addPoint([55.484758, 37.738521]);
-	adapter.addPoint([55.684758, 37.738521]);
-	adapter.addPoint([55.684758, 37.538521]);
-	adapter.addPoint([55.484758, 37.538521]);
+	adapter.addPoint([43.12386679361278, 131.88086351500806]);
+	adapter.addPoint([43.12486911974214, 131.96772417174634]);
+	adapter.addPoint([43.08250653050789, 131.9550212298518]);
+	adapter.addPoint([43.08902575991306, 131.85957750426587]);
 
 	adapter.onCoordinatesClick(coords => {
 		adapter.addPoint(coords);
