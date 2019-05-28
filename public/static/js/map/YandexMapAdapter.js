@@ -11,7 +11,7 @@ class YandexMapAdapter extends AbstractMapAdapter {
 		$('<div id="map" class="overlay__map"></div>').appendTo('.js-overlay');
 
 		this.map = new ymaps.Map("map", {
-			center: [],
+			center: [0, 0],
 			zoom: 9,
 			controls: []
 		});

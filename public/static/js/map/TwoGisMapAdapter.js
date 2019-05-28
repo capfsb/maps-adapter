@@ -4,21 +4,21 @@ class TwoGisMapAdapter extends AbstractMapAdapter {
 	}
 
 	async start() {
-		let _resolve;
-		let mapLoaded = new Promise(resolve => _resolve = resolve);
 		//@todo короче проросло
 		$('<div id="map" class="overlay__map"></div>').appendTo('.js-overlay');
 
-		DG.then(() => {
-			this.map = DG.map('map', {
-				center: [0, 0],
-				zoom: 9,
-				fullscreenControl: false,
-				zoomControl: false
+		return new Promise(resolve => {
+			DG.then(() => {
+				this.map = DG.map('map', {
+					center: [0, 0],
+					zoom: 9,
+					fullscreenControl: false,
+					zoomControl: false
+				});
+
+				resolve();
 			});
-			_resolve();
 		});
-		await mapLoaded;
 	}
 
 	zoomIn() {
