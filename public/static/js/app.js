@@ -18,11 +18,6 @@ $(async () => {
 
 	adapter.setCenter([43.1236162095144, 131.92480882750806]);
 
-	adapter.addPoint([43.12386679361278, 131.88086351500806]);
-	adapter.addPoint([43.12486911974214, 131.96772417174634]);
-	adapter.addPoint([43.08250653050789, 131.9550212298518]);
-	adapter.addPoint([43.08902575991306, 131.85957750426587]);
-
 	adapter.onCoordinatesClick(coords => {
 		adapter.addPoint(coords);
 		$('.js-reverse-geocoder').text(JSON.stringify(coords))
@@ -47,4 +42,13 @@ $(async () => {
 			adapter.fitToViewport();
 		},
 	}));
+
+	/** Парсим точки из булетинов и оставляем, только уникальные, добавляем их на карту */
+	let allPoints = $('[data-coordinates]').get().map(value => $(value).attr('data-coordinates'));
+	let uniquePoints = [...new Set(allPoints)];
+
+	uniquePoints.forEach(pointStr => {
+		adapter.addPoint(JSON.parse(pointStr))
+	})
+
 });
