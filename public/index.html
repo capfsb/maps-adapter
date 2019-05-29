@@ -12,6 +12,16 @@
 	var chooseMapType = new Promise(resolve => resolveMapWithType = resolve)
 </script>
 
+<style>
+	.bulletin {
+		cursor: pointer;
+	}
+
+	.bulletin:hover {
+		background-color: bisque;
+	}
+</style>
+
 <div>
 	<div>Выберите карту:</div>
 	<button onclick="resolveMapWithType('yandex')">Yandex</button>
