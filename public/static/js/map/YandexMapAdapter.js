@@ -41,7 +41,29 @@ class YandexMapAdapter extends AbstractMapAdapter {
 			}
 		});
 
-		this.map.geoObjects.add(myGeoObject)
+		this.map.geoObjects.add(myGeoObject);
+
+		return this.storeGeoObject({
+			setActive(isActive) {
+				isActive
+					? myGeoObject.options.set('preset', 'islands#greenIcon')
+					: myGeoObject.options.unset('preset');
+			},
+
+			onMouseIn(cb) {
+				myGeoObject.events.add('mouseenter', () => {
+					this.setActive(true);
+					cb();
+				})
+			},
+
+			onMouseOut(cb) {
+				myGeoObject.events.add('mouseleave', () => {
+					this.setActive(false);
+					cb();
+				})
+			}
+		});
 	}
 
 	onCoordinatesClick(callback) {

@@ -13,6 +13,9 @@ class AbstractMapAdapter {
 		) {
 			throw new Error('Implement method!')
 		}
+
+		this.__uniqueId = 0;
+		this.__geoObjectsStorage = {};
 	}
 
 	async start() {
@@ -39,10 +42,10 @@ class AbstractMapAdapter {
 	addPolyline(coordinatesArray, style) {
 	}
 
-	centerMapWithCoordinates(coordinatesArray){
+	centerMapWithCoordinates(coordinatesArray) {
 	}
 
-	getBounds(coordinatesArray){
+	getBounds(coordinatesArray) {
 		let minx;
 		let miny;
 		let maxx;
@@ -63,5 +66,31 @@ class AbstractMapAdapter {
 		});
 
 		return [[minx, miny], [maxx, maxy]];
+	}
+
+	getUniqueId() {
+		return this.__uniqueId++;
+	}
+
+	findGeoObject(id) {
+		return this.__geoObjectsStorage[id] || null;
+	}
+
+	storeGeoObject(object) {
+		if (object.getId) {
+			throw new Error('getId already set')
+		}
+
+		let uniqueId = this.getUniqueId();
+
+		object.getId = () => uniqueId;
+
+		this.__geoObjectsStorage[uniqueId] = object;
+
+		return object;
+	}
+
+	unstoreGeoObject(id) {
+		delete this.__geoObjectsStorage[id]
 	}
 }

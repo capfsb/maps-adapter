@@ -48,7 +48,15 @@ $(async () => {
 	let uniquePoints = [...new Set(allPoints)];
 
 	uniquePoints.forEach(pointStr => {
-		adapter.addPoint(JSON.parse(pointStr))
+		let point = adapter.addPoint(JSON.parse(pointStr));
+
+		point.onMouseIn(()=>{
+			$(`[data-coordinates="${pointStr}"]`).css('background-color', 'green')
+		});
+
+		point.onMouseOut(()=>{
+			$(`[data-coordinates="${pointStr}"]`).css('background-color', '')
+		});
 	})
 
 });
