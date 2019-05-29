@@ -34,7 +34,44 @@ class TwoGisMapAdapter extends AbstractMapAdapter {
 	}
 
 	addPoint(coords) {
-		DG.marker(coords).addTo(this.map);
+		let marker = DG.marker(coords, {
+			icon: DG.icon({
+				iconUrl: 'https://maps.api.2gis.ru/2.0/img/DGCustomization__marker.png',
+				iconSize: [22, 34]
+			})
+		}).addTo(this.map);
+
+		return this.storeGeoObject({
+			setActive(isActive) {
+				if (isActive) {
+					var myIcon = DG.icon({
+						iconUrl: 'https://maps.api.2gis.ru/2.0/img/DGCustomization__markerHover.png',
+						iconSize: [22, 34]
+					});
+				} else {
+					var myIcon = DG.icon({
+						iconUrl: 'https://maps.api.2gis.ru/2.0/img/DGCustomization__marker.png',
+						iconSize: [22, 34]
+					});
+				}
+
+				marker.setIcon(myIcon);
+			},
+
+			onMouseIn(cb) {
+				marker.on("mouseover", () => {
+					this.setActive(true);
+					cb();
+				});
+			},
+
+			onMouseOut(cb) {
+				marker.on("mouseout", () => {
+					this.setActive(false);
+					cb();
+				});
+			}
+		});
 	}
 
 	onCoordinatesClick(callback) {

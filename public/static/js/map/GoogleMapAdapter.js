@@ -29,7 +29,33 @@ class GoogleMapAdapter extends AbstractMapAdapter {
 	}
 
 	addPoint([lat, lng]) {
-		new google.maps.Marker({position: {lat, lng}, map: this.map});
+		let marker = new google.maps.Marker({
+			position: {lat, lng},
+			map: this.map,
+			icon: 'https://maps.google.com/mapfiles/ms/icons/red-dot.png'
+		});
+
+		return this.storeGeoObject({
+			setActive(isActive) {
+				isActive
+					? marker.setIcon('https://maps.google.com/mapfiles/ms/icons/blue-dot.png')
+					: marker.setIcon('https://maps.google.com/mapfiles/ms/icons/red-dot.png');
+			},
+
+			onMouseIn(cb) {
+				google.maps.event.addListener(marker, "mouseover", () => {
+					this.setActive(true);
+					cb();
+				});
+			},
+
+			onMouseOut(cb) {
+				google.maps.event.addListener(marker, "mouseout", () => {
+					this.setActive(false);
+					cb();
+				});
+			}
+		});
 	}
 
 	onCoordinatesClick(callback) {
