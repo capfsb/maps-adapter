@@ -5,15 +5,11 @@ class GoogleMapAdapter extends AbstractMapAdapter {
 
 	}
 
-	async start() {
-		//@todo вот это надо отсюда убрать, карта не должна знать про оверлей, все еще лень, прости
-		$('<div id="map" class="overlay__map"></div>').appendTo('.js-overlay');
-
-		this.map = new google.maps.Map(document.getElementById('map'), {
+	async start(containerId) {
+		this.map = new google.maps.Map(document.getElementById(containerId), {
 			zoom: 9,
 			disableDefaultUI: true
 		});
-
 	}
 
 	zoomIn() {

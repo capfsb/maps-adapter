@@ -14,7 +14,11 @@ $(async () => {
 
 	let overlay = new Overlay('.js-map-container');
 
-	await adapter.start();
+	//наверное лучше оформить в виде контрола
+	let mapId = "map";
+	$(`<div id="${mapId}" class="overlay__map"></div>`).appendTo('.js-overlay');
+
+	await adapter.start(mapId);
 
 	adapter.setCenter([43.1236162095144, 131.92480882750806]);
 

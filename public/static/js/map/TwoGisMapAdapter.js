@@ -3,13 +3,13 @@ class TwoGisMapAdapter extends AbstractMapAdapter {
 		super()
 	}
 
-	async start() {
+	async start(containerId) {
 		//@todo короче проросло
 		$('<div id="map" class="overlay__map"></div>').appendTo('.js-overlay');
 
 		return new Promise(resolve => {
 			DG.then(() => {
-				this.map = DG.map('map', {
+				this.map = DG.map(containerId, {
 					center: [0, 0],
 					zoom: 9,
 					fullscreenControl: false,

@@ -4,13 +4,10 @@ class YandexMapAdapter extends AbstractMapAdapter {
 		this.map = null;
 	}
 
-	async start() {
+	async start(containerId) {
 		await new Promise(resolve => ymaps.ready(resolve));
 
-		//@todo вот это надо отсюда убрать, карта не должна знать про оверлей
-		$('<div id="map" class="overlay__map"></div>').appendTo('.js-overlay');
-
-		this.map = new ymaps.Map("map", {
+		this.map = new ymaps.Map(containerId, {
 			center: [0, 0],
 			zoom: 9,
 			controls: []

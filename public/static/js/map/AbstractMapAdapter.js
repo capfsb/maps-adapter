@@ -18,7 +18,7 @@ class AbstractMapAdapter {
 		this.__geoObjectsStorage = {};
 	}
 
-	async start() {
+	async start(containerId) {
 	}
 
 	zoomIn() {
