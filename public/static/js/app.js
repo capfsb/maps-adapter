@@ -43,6 +43,9 @@ $(async () => {
 		},
 	}));
 
+	let popupControl = new PopupControl();
+	overlay.addControl(popupControl);
+
 	/** Парсим точки из булетинов и оставляем, только уникальные, добавляем их на карту */
 	let allPoints = $('[data-coordinates]').get().map(value => $(value).attr('data-coordinates'));
 	let uniquePoints = [...new Set(allPoints)];

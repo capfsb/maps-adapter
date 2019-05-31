@@ -41,3 +41,13 @@ body {
     height: 100%;
     width: 100%;
 }
+
+.overlay__popup {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: white;
+    z-index: 2;
+    box-sizing: border-box;
+    overflow: hidden;
+}
