@@ -70,7 +70,9 @@ class TwoGisMapAdapter extends AbstractMapAdapter {
 					this.setActive(false);
 					cb();
 				});
-			}
+			},
+
+			onClick: cb => marker.on("click", () => cb())
 		});
 	}
 

@@ -54,7 +54,11 @@ class GoogleMapAdapter extends AbstractMapAdapter {
 					this.setActive(false);
 					cb();
 				});
-			}
+			},
+
+			onClick: (cb) => google.maps.event.addListener(marker, "click", () => {
+				cb();
+			})
 		});
 	}
 

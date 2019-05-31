@@ -62,7 +62,9 @@ class YandexMapAdapter extends AbstractMapAdapter {
 					this.setActive(false);
 					cb();
 				})
-			}
+			},
+
+			onClick: cb => myGeoObject.events.add('click', () => cb())
 		});
 	}
 

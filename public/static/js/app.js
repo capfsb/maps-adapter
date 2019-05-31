@@ -62,6 +62,15 @@ $(async () => {
 		point.onMouseOut(()=>{
 			$(`[data-coordinates="${pointStr}"]`).css('background-color', '')
 		});
+
+		point.onClick(()=>{
+			let text = [`Клик по точке ${pointStr}<br>`];
+
+			$(`[data-coordinates="${pointStr}"]`).each(function () {
+				text.push($(this).text())
+			});
+			popupControl.show(text.join('<br>'));
+		});
 	});
 
 	$('[data-coordinates]').on('mouseenter', e => {
