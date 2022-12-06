@@ -3,6 +3,6 @@
     "start": "http-server -p 1337 -c-1"
   },
   "dependencies": {
-    "http-server": "^0.11.1"
+    "http-server": "^0.11.2"
   }
 }
